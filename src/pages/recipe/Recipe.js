@@ -17,7 +17,7 @@ export default function Recipe() {
   useEffect(() => {
     setIsPending(true);
 
-    const unsub=projectFirestore .collection('recipes').doc(id).onSnapshot((doc) => {
+    const unsub=projectFirestore.collection('recipes').doc(id).onSnapshot((doc) => {
         if (doc.exists) {
           setIsPending(false)
           setRecipe(doc.data())
@@ -34,12 +34,6 @@ const handleClick=()=>{
     title:'New General Title'
   })
 }
-
-
-
-
-
-
 
   return (
     <div className={`recipe ${mode}`}>
