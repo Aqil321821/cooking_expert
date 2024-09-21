@@ -15,7 +15,7 @@ export default function Navbar() {
         </Link>
         <Searchbar />
 
-        <Link to='/create'>Create Recipe</Link>
+        <Link to='/create'>Create Recipe + </Link>
       </nav>
     </div>
   );

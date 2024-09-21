@@ -37,3 +37,12 @@
   .recipe.dark li{
     color: black;
   }
+
+  .recipe button{
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #777;
+    cursor: pointer;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #fff;
+  }

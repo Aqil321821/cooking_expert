@@ -13,10 +13,7 @@ export default function Home() {
   useEffect(() => {
     setIsPending(true);
 
-    projectFirestore
-      .collection('recipes')
-      .get()
-      .then((snapshot) => {
+    const unsub=projectFirestore.collection('recipes').onSnapshot((snapshot) => {
         if (snapshot.empty) {
           setError('No Recipes To Load');
           setIsPending(false);
@@ -28,11 +25,13 @@ export default function Home() {
           setData(results);
           setIsPending(false);
         }
+      },
+      (err)=>{
+                   setError(err.message)
+                   setIsPending(false)
       })
-      .catch((err) => {
-        setError(err.message);
-        setIsPending(false);
-      });
+      //when compt is unmount during fetching it will abort that request
+     return ()=> unsub()
   }, []);
 
   return (
